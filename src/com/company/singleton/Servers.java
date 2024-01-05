@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Servers {
+public enum Servers {
 
     //Zadanie 1 - singleton
     //Stwórz singleton Servers typu lazy. Singleton ten przechowuje listę serwerów (jako String). Zaimplementuj następujące funkcjonalności:
@@ -24,15 +24,11 @@ public class Servers {
     //Zadanie 4 - singleton
     //Zmień typ singletonu z poprzedniego zadania. Wykorzystaj enum.
 
-    private static final Servers INSTANCE = new Servers();
-
-    public Servers getInstance() {
-        return INSTANCE;
-    }
+    INSTANCE;
 
     private final List<String> servers;
 
-    private Servers() {
+    Servers() {
         servers = new ArrayList<>();
     }
 
