@@ -24,23 +24,16 @@ public class Servers {
     //Zadanie 4 - singleton
     //Zmień typ singletonu z poprzedniego zadania. Wykorzystaj enum.
 
-    private static Servers instance;
+    private static final Servers INSTANCE = new Servers();
+
+    public Servers getInstance() {
+        return INSTANCE;
+    }
 
     private final List<String> servers;
 
     private Servers() {
         servers = new ArrayList<>();
-    }
-
-    public Servers getInstance() {
-        if (instance == null) {
-            synchronized (Servers.class) {
-                if (instance == null) {
-                    instance = new Servers();
-                }
-            }
-        }
-        return instance;
     }
 
     public boolean addServer(String server) {
