@@ -34,7 +34,11 @@ public class Servers {
 
     public Servers getInstance() {
         if (instance == null) {
-            instance = new Servers();
+            synchronized (Servers.class) {
+                if (instance == null) {
+                    instance = new Servers();
+                }
+            }
         }
         return instance;
     }
